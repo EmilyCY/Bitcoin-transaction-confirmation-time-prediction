@@ -14976,23 +14976,33 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_groups_feerate_range</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">p_lambda</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">p_feerate_min</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">p_feerate_max</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">p_df</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">p_groups_feerate_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
         <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>
+        <span class="n">p_feerate_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+        <span class="n">p_feerate_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
         <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
     <span class="k">elif</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_groups_feerate_range</span><span class="p">))):</span>
         <span class="n">p_df</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">p_groups_feerate_range</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
         <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>
+        <span class="n">p_feerate_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+        <span class="n">p_feerate_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
         <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">p_df</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p_groups_feerate_range</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">p_groups_feerate_range</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>
-        <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>        
+        <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>
+        <span class="n">p_feerate_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+        <span class="n">p_feerate_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
         <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
 
     <span class="n">p_groups_lambda</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="n">p_transaction_count</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Min: &quot;</span><span class="p">,</span> <span class="n">p_feerate_min</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Max: &quot;</span><span class="p">,</span> <span class="n">p_feerate_max</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lambda: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum Of Lambda: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">))</span>
@@ -15018,19 +15028,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-Transaction Count: 2035992
+Transaction Count:  2035992
+Feerate Min:  30.17718371153248
+Feerate Max:  52380.95238095238
 Lambda: 1.8686986243533874
 
 Priority Group 2
-Transaction Count: 565762
+Transaction Count:  565762
+Feerate Min:  18.529411764705888
+Feerate Max:  30.17718371153248
 Lambda: 0.5165653492665521
 
 Priority Group 3
-Transaction Count: 389945
+Transaction Count:  389945
+Feerate Min:  5.0
+Feerate Max:  18.529411764705888
 Lambda: 0.3554804585797738
 
 Priority Group 4
-Transaction Count: 397918
+Transaction Count:  397918
+Feerate Min:  0.907563025210084
+Feerate Max:  4.998487140695915
 Lambda: 0.3619598250955343
 
 Sum Of Lambda:  3.1027042572952475
