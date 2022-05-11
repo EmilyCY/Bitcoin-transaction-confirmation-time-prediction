@@ -14612,7 +14612,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_GROUP_BOUNDS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="n">COLS_TO_USE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
-<span class="n">HEADER_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee&#39;</span><span class="p">,</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;confirm_time&#39;</span><span class="p">,</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">,</span><span class="s1">&#39;enter_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;no_block_confirm&#39;</span><span class="p">]</span>
+<span class="n">HEADER_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="s1">&#39;received_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee&#39;</span><span class="p">,</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;confirm_time&#39;</span><span class="p">,</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">,</span><span class="s1">&#39;enter_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;no_block_confirm&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14644,6 +14644,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">d3</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;TimetxinBlock622500.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">COLS_TO_USE</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">HEADER_NAMES</span><span class="p">)</span>
 <span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d3</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">))</span>
+<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">])</span>
 <span class="n">dataFrame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14699,7 +14700,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th></th>
       <th>size</th>
       <th>weight</th>
-      <th>recieved_time</th>
+      <th>received_time</th>
       <th>fee</th>
       <th>confirmed_block_height</th>
       <th>confirm_time</th>
@@ -14711,134 +14712,134 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793568</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>646</td>
-      <td>11.147982</td>
-      <td>621000</td>
-      <td>2</td>
+      <th>68059</th>
+      <td>1220</td>
+      <td>2258</td>
+      <td>1583756823</td>
+      <td>567</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53439</td>
+      <td>1.004429</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791819</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2395</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
+      <th>67841</th>
+      <td>284</td>
+      <td>806</td>
+      <td>1583756865</td>
+      <td>202</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53397</td>
+      <td>1.002481</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793885</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>329</td>
-      <td>11.147982</td>
-      <td>621001</td>
-      <td>1</td>
+      <th>68124</th>
+      <td>926</td>
+      <td>1736</td>
+      <td>1583756869</td>
+      <td>436</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53393</td>
+      <td>1.004608</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793700</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>514</td>
-      <td>11.147982</td>
-      <td>621000</td>
-      <td>2</td>
+      <th>16126</th>
+      <td>420</td>
+      <td>1032</td>
+      <td>1583756885</td>
+      <td>258</td>
+      <td>621006</td>
+      <td>1583796952</td>
+      <td>40067</td>
+      <td>1.000000</td>
+      <td>620943</td>
+      <td>64</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791354</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2860</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
+      <th>10295</th>
+      <td>420</td>
+      <td>1032</td>
+      <td>1583756899</td>
+      <td>258</td>
+      <td>621004</td>
+      <td>1583796307</td>
+      <td>39408</td>
+      <td>1.000000</td>
+      <td>620943</td>
+      <td>62</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791731</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2483</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
+      <th>67965</th>
+      <td>247</td>
+      <td>661</td>
+      <td>1583756901</td>
+      <td>166</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53361</td>
+      <td>1.004539</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583792024</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2190</td>
-      <td>11.148248</td>
-      <td>620998</td>
-      <td>4</td>
+      <th>68119</th>
+      <td>667</td>
+      <td>2668</td>
+      <td>1583756912</td>
+      <td>670</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53350</td>
+      <td>1.004498</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583793603</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>611</td>
-      <td>11.148248</td>
-      <td>621000</td>
-      <td>2</td>
+      <th>67559</th>
+      <td>283</td>
+      <td>805</td>
+      <td>1583756927</td>
+      <td>202</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53335</td>
+      <td>1.003727</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583793883</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>331</td>
-      <td>11.148248</td>
-      <td>621001</td>
-      <td>1</td>
+      <th>67654</th>
+      <td>247</td>
+      <td>661</td>
+      <td>1583756972</td>
+      <td>166</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53290</td>
+      <td>1.004539</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583791921</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2293</td>
-      <td>11.148248</td>
-      <td>620998</td>
-      <td>4</td>
+      <th>67945</th>
+      <td>283</td>
+      <td>805</td>
+      <td>1583757002</td>
+      <td>202</td>
+      <td>621031</td>
+      <td>1583810262</td>
+      <td>53260</td>
+      <td>1.003727</td>
+      <td>620943</td>
+      <td>89</td>
     </tr>
   </tbody>
 </table>
@@ -14928,11 +14929,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="n">feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P_GROUP_BOUNDS</span><span class="p">)):</span>
         <span class="n">transaction_counts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;no_block_confirm&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper_boundary</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-        <span class="n">boundary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="n">transaction_counts</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1">#boundary = data[&#39;fee_rate&#39;].nlargest(transaction_counts).iloc[-1]</span>
+        <span class="n">boundary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">transaction_counts</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boundary</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">feerate_range</span>
 
-<span class="n">p_groups_feerate_range</span> <span class="o">=</span> <span class="n">calculate_feerate_for_priority_groups</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">,</span> <span class="n">P_GROUP_BOUNDS</span><span class="p">)</span>
+<span class="n">p_groups_feerate_range</span> <span class="o">=</span> <span class="n">calculate_feerate_for_priority_groups</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">),</span> <span class="n">P_GROUP_BOUNDS</span><span class="p">)</span>
 <span class="n">p_groups_feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one block waited ration: &quot;</span><span class="p">,</span> <span class="n">p_groups_feerate_range</span><span class="p">)</span>
 </pre></div>
@@ -14987,19 +14989,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_groups_lambda</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+
 <span class="k">for</span> <span class="n">current</span><span class="p">,</span> <span class="nb">next</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_groups_feerate_range</span><span class="p">,</span><span class="n">p_groups_feerate_range</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
     <span class="n">p_df</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">current</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">next</span><span class="p">)]</span>
     <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>
-    <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;recieved_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+    <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
     <span class="n">p_groups_lambda</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_groups_feerate_range</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="n">p_transaction_count</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Min: &quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Max: &quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lambda: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum Of All Lambda: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">))</span>
 </pre></div>
