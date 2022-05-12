@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block style %}
+
+{% endblock style %} 
+
+{% block title %}
+    Test
+{% endblock title %}
+
+{% block content %}
+
+    <!-- Filter the chart with the selected dates -->
+    {% for date,price in price.items %}
+    <span class="date-item">{{date}} </span> |
+    <span class="price-item">{{price}}</span> 
+    <br>
+    {% endfor %}
+
+    <form id="contents" name="contents" method="post" action="{% url 'test_result' %}"> 
+        {% csrf_token %}
+        priority : <input name="priority" type="number"> 
+        fee rate : <input name="fee_rate" type="number"> 
+        <button type="button" onclick="send();">expect time</button>
+    </form>
+
+{% endblock content %}
+
+{% block script %}
+    <script>
+        function send() { 
+            alert("send");
+            document.getElementById("contents").submit();
+        }
+    </script>
+{% endblock script %}
