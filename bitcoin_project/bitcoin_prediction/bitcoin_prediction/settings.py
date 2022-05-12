@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-l+6uo8^+a9ncfk-9a22f9yv=q1p%1@_5+9i5b!4szp7ik(g46g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "ec2-13-211-42-193.ap-southeast-2.compute.amazonaws.com",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -78,8 +81,8 @@ WSGI_APPLICATION = 'bitcoin_prediction.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'postgres',
+        'NAME': 'btc-db',
+        'USER': 'admin',
         'PASSWORD': 'admin123',
         'HOST': 'localhost',
         'PORT': '5432',
