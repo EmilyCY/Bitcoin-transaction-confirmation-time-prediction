@@ -14644,7 +14644,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">d3</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;TimetxinBlock622500.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">COLS_TO_USE</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">HEADER_NAMES</span><span class="p">)</span>
 <span class="n">dataFrame</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d3</span><span class="p">])</span>
 
-<span class="n">dataFrame</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Remove any rows with negative values for waiting_time</span>
+<span class="c1">#dataFrame = dataFrame[dataFrame[&#39;waiting_time&#39;] &gt;= 0] # Remove any rows with negative values for waiting_time</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">))</span>
 <span class="n">dataFrame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -14668,7 +14668,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Transaction Count:  3389521
+<pre>Transaction Count:  3389596
 </pre>
 </div>
 </div>
@@ -14959,7 +14959,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>one block waited ration:  [52380.95238095238, 30.175438596491237, 18.529411764705888, 5.0, 0.0]
+<pre>one block waited ration:  [52380.95238095238, 30.17718371153248, 18.529411764705888, 5.0, 0.0]
 </pre>
 </div>
 </div>
@@ -15028,16 +15028,16 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-Transaction Count:  2035967
-Feerate Min:  30.175580221997983
+Transaction Count:  2035990
+Feerate Min:  30.177281680892968
 Feerate Max:  52380.95238095238
-Lambda: 1.851985231178986
+Lambda: 1.8520061527657883
 
 Priority Group 2
-Transaction Count:  565691
+Transaction Count:  565743
 Feerate Min:  18.52950075642965
-Feerate Max:  30.175438596491237
-Lambda: 0.5145718852078014
+Feerate Max:  30.17718371153248
+Lambda: 0.5146191861866588
 
 Priority Group 3
 Transaction Count:  385863
@@ -15051,7 +15051,7 @@ Feerate Min:  0.907563025210084
 Feerate Max:  5.0
 Lambda: 0.36567295193583804
 
-Sum Of All Lambda:  3.083224253031129
+Sum Of All Lambda:  3.0832924755967883
 </pre>
 </div>
 </div>
@@ -15187,27 +15187,27 @@ Sum Of All Lambda:  3.083224253031129
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
 My Z: 
-0.9992742750913941
+0.9992742885941374
 SciPy Z: 
-0.9992742751058932
+0.9992742886086413
 
 Priority Group 2
 My Z: 
-0.9995497987137135
+0.9995498292346298
 SciPy Z: 
-0.9995497987138171
+0.9995498292347333
 
 Priority Group 3
 My Z: 
-0.9996918411807911
+0.9996918662098748
 SciPy Z: 
-0.9996918412628326
+0.9996918662920112
 
 Priority Group 4
 My Z: 
-0.9998145619120352
+0.9998145828936912
 SciPy Z: 
-0.9998145619140734
+0.9998145828957332
 
 </pre>
 </div>
@@ -15277,24 +15277,24 @@ SciPy Z:
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-Z:  0.9992742751058932
-Average Transaction In Queue (L):  1376.9326134743274
-Average Response Time In Queue (W): 743.4900615259027
+Z:  0.9992742886086413
+Average Transaction In Queue (L):  1376.9582515961176
+Average Response Time In Queue (W): 743.4955059624216
 
 Priority Group 2
-Z:  0.9995497987138171
-Average Transaction In Queue (L):  843.2960473290768
-Average Response Time In Queue (W): 1638.8303977947135
+Z:  0.9995498292347333
+Average Transaction In Queue (L):  843.4210052457995
+Average Response Time In Queue (W): 1638.9225817552015
 
 Priority Group 3
-Z:  0.9996918412628326
-Average Transaction In Queue (L):  1023.8521348672389
-Average Response Time In Queue (W): 2917.0059775136638
+Z:  0.9996918662920112
+Average Transaction In Queue (L):  1023.9651312392957
+Average Response Time In Queue (W): 2917.3279098332855
 
 Priority Group 4
-Z:  0.9998145619140734
-Average Transaction In Queue (L):  2147.554676179624
-Average Response Time In Queue (W): 5872.883583023225
+Z:  0.9998145828957332
+Average Transaction In Queue (L):  2147.9013103370635
+Average Response Time In Queue (W): 5873.831517935021
 
 </pre>
 </div>
