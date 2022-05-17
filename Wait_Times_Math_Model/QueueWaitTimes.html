@@ -14646,7 +14646,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <span class="n">dataFrame</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Remove any rows with negative values for waiting_time</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">))</span>
-<span class="n">dataFrame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#dataFrame.head(10)</span>
 </pre></div>
 
      </div>
@@ -14671,182 +14671,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <pre>Transaction Count:  3389521
 </pre>
 </div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>size</th>
-      <th>weight</th>
-      <th>received_time</th>
-      <th>fee</th>
-      <th>confirmed_block_height</th>
-      <th>confirm_time</th>
-      <th>waiting_time</th>
-      <th>fee_rate</th>
-      <th>enter_block_height</th>
-      <th>no_block_confirm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793568</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>646</td>
-      <td>11.147982</td>
-      <td>621000</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791819</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2395</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793885</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>329</td>
-      <td>11.147982</td>
-      <td>621001</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583793700</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>514</td>
-      <td>11.147982</td>
-      <td>621000</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791354</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2860</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>223</td>
-      <td>892</td>
-      <td>1583791731</td>
-      <td>2486</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2483</td>
-      <td>11.147982</td>
-      <td>620998</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583792024</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2190</td>
-      <td>11.148248</td>
-      <td>620998</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583793603</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>611</td>
-      <td>11.148248</td>
-      <td>621000</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583793883</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>331</td>
-      <td>11.148248</td>
-      <td>621001</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>371</td>
-      <td>1484</td>
-      <td>1583791921</td>
-      <td>4136</td>
-      <td>621001</td>
-      <td>1583794214</td>
-      <td>2293</td>
-      <td>11.148248</td>
-      <td>620998</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
 </div>
 
 </div>
@@ -14937,7 +14761,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <span class="n">p_groups_feerate_range</span> <span class="o">=</span> <span class="n">calculate_feerate_for_priority_groups</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">),</span> <span class="n">P_GROUP_BOUNDS</span><span class="p">)</span>
 <span class="n">p_groups_feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one block waited ration: &quot;</span><span class="p">,</span> <span class="n">p_groups_feerate_range</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fee Rate Priority Range: &quot;</span><span class="p">,</span> <span class="n">p_groups_feerate_range</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14959,7 +14783,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>one block waited ration:  [52380.95238095238, 30.175438596491237, 18.529411764705888, 5.0, 0.0]
+<pre>Fee Rate Priority Range:  [52380.95238095238, 30.175438596491237, 18.529411764705888, 5.0, 0.0]
 </pre>
 </div>
 </div>
@@ -14987,7 +14811,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_groups_lambda</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_wait_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">p_groups_lambda</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 <span class="n">received_time_max</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">received_time_min</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -14998,14 +14823,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="c1">#p_lambda = float(p_transaction_count) / (float(p_df[&#39;received_time&#39;].max()) - float(p_df[&#39;received_time&#39;].min()))</span>
     <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">received_time_max</span> <span class="o">-</span> <span class="n">received_time_min</span><span class="p">)</span>
     <span class="n">p_groups_lambda</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span>
-    
+    <span class="n">raw_wait_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_groups_feerate_range</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span><span class="p">,</span> <span class="n">p_transaction_count</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Min: &quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Max: &quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lambda: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transaction Count: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, Raw Wait Time (Mean): &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feerate Min: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span> <span class="o">+</span> <span class="s2">&quot;, Max: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">p_df</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lambda: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">))</span>
     
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sum Of All Lambda: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sum Of All Lambda: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15028,27 +14853,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-Transaction Count:  2035967
-Feerate Min:  30.175580221997983
-Feerate Max:  52380.95238095238
+Transaction Count: 2035967, Raw Wait Time (Mean): 2474.0209728350214
+Feerate Min: 30.175580221997983, Max: 52380.95238095238
 Lambda: 1.851985231178986
-
 Priority Group 2
-Transaction Count:  565691
-Feerate Min:  18.52950075642965
-Feerate Max:  30.175438596491237
+Transaction Count: 565691, Raw Wait Time (Mean): 6085.267361510082
+Feerate Min: 18.52950075642965, Max: 30.175438596491237
 Lambda: 0.5145718852078014
-
 Priority Group 3
-Transaction Count:  385863
-Feerate Min:  5.000028548752705
-Feerate Max:  18.529411764705888
+Transaction Count: 385863, Raw Wait Time (Mean): 9987.642969136714
+Feerate Min: 5.000028548752705, Max: 18.529411764705888
 Lambda: 0.3509941847085032
-
 Priority Group 4
-Transaction Count:  402000
-Feerate Min:  0.907563025210084
-Feerate Max:  5.0
+Transaction Count: 402000, Raw Wait Time (Mean): 11979.932554726369
+Feerate Min: 0.907563025210084, Max: 5.0
 Lambda: 0.36567295193583804
 
 Sum Of All Lambda:  3.083224253031129
@@ -15080,8 +14898,8 @@ Sum Of All Lambda:  3.083224253031129
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">service_time</span> <span class="o">=</span> <span class="mi">600</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">service_time</span> <span class="c1"># Our Original Mu = 0.0016666666666666668</span>
-<span class="c1">#mu = (1/service_time)*mean_block_size # Our New Mu = 3.776666666666667</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">service_time</span> <span class="c1"># = 0.0016666666666666668</span>
+<span class="c1">#mu = (1/service_time)*mean_block_size # = 3.776666666666667</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mu: &quot;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 </pre></div>
 
@@ -15160,8 +14978,7 @@ Sum Of All Lambda:  3.083224253031129
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_p_group_z</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My Z: </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">my_p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SciPy Z: </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sciPy_p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My Z: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">my_p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;, SciPy Z: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sciPy_p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
     
 </pre></div>
 
@@ -15185,29 +15002,13 @@ Sum Of All Lambda:  3.083224253031129
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-My Z: 
-0.9992742750913941
-SciPy Z: 
-0.9992742751058932
-
+My Z: 0.9992742750913941, SciPy Z: 0.9992742751058932
 Priority Group 2
-My Z: 
-0.9995497987137135
-SciPy Z: 
-0.9995497987138171
-
+My Z: 0.9995497987137135, SciPy Z: 0.9995497987138171
 Priority Group 3
-My Z: 
-0.9996918411807911
-SciPy Z: 
-0.9996918412628326
-
+My Z: 0.9996918411807911, SciPy Z: 0.9996918412628326
 Priority Group 4
-My Z: 
-0.9998145619120352
-SciPy Z: 
-0.9998145619140734
-
+My Z: 0.9998145619120352, SciPy Z: 0.9998145619140734
 </pre>
 </div>
 </div>
@@ -15251,9 +15052,8 @@ SciPy Z:
     <span class="n">p_group_response_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_time</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Z: &quot;</span><span class="p">,</span> <span class="n">sciPy_p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average Transaction In Queue (L): &quot;</span><span class="p">,</span> <span class="n">transaction_in_queue</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average Response Time In Queue (W): &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">response_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average Response Time In Queue (W): &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">response_time</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15276,25 +15076,17 @@ SciPy Z:
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Priority Group 1
-Z:  0.9992742751058932
 Average Transaction In Queue (L):  1376.9326134743274
 Average Response Time In Queue (W): 743.4900615259027
-
 Priority Group 2
-Z:  0.9995497987138171
 Average Transaction In Queue (L):  843.2960473290768
 Average Response Time In Queue (W): 1638.8303977947135
-
 Priority Group 3
-Z:  0.9996918412628326
 Average Transaction In Queue (L):  1023.8521348672389
 Average Response Time In Queue (W): 2917.0059775136638
-
 Priority Group 4
-Z:  0.9998145619140734
 Average Transaction In Queue (L):  2147.554676179624
 Average Response Time In Queue (W): 5872.883583023225
-
 </pre>
 </div>
 </div>
