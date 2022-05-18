@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-l+6uo8^+a9ncfk-9a22f9yv=q1p%1@_5+9i5b!4szp7ik(g46g
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "ec2-13-211-42-193.ap-southeast-2.compute.amazonaws.com",
     "127.0.0.1",
 ]
 
@@ -40,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'prediction',
+    'prediction.apps.PredictionConfig',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +51,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',     
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
 ]
 
 ROOT_URLCONF = 'bitcoin_prediction.urls'
@@ -81,8 +86,8 @@ WSGI_APPLICATION = 'bitcoin_prediction.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btc-db',
-        'USER': 'admin',
+        'NAME': 'transactions',
+        'USER': 'postgres',
         'PASSWORD': 'admin123',
         'HOST': 'localhost',
         'PORT': '5432',

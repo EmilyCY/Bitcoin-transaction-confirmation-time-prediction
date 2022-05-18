@@ -39,30 +39,30 @@ class BulkCreateManager(object):
 
 def load_data(request):
     scriptpath = os.path.dirname(os.getcwd())
-    filename = os.path.join(scriptpath, 'bitcoin_prediction/static/data/TimetxinBlock621500.csv')
+    filename = os.path.join(scriptpath, 'bitcoin_prediction/static/data/TimetxinBlock622500.csv')
     
     with open(filename, 'r') as csv_file:
         bulk_mgr = BulkCreateManager(chunk_size=20)
         for row in csv.reader(csv_file):
-            bulk_mgr.add(Transaction(   index_of_transaction = row[0],
-                                        number_of_inputs = row[1],
-                                        number_of_outputs = row[2],
-                                        version_of_transaction = row[3],
-                                        size_of_transaction = row[4],
-                                        weight_of_transaction = row[5],
-                                        received_timestamp_of_transaction = row[6],
+            bulk_mgr.add(Transaction(   index = row[0],
+                                        inputs = row[1],
+                                        outputs = row[2],
+                                        trans_version = row[3],
+                                        trans_size = row[4],
+                                        trans_weight = row[5],
+                                        received_time = row[6],
                                         relay_node = row[7],
-                                        locktime_in_transaction = row[8],
-                                        transaction_fee = row[9],
+                                        locktime = row[8],
+                                        trans_fee = row[9],
                                         confirmed_block_height = row[10],
-                                        index_of_confirmed_block_height = row[11],
-                                        confirmed_timestamp_of_transaction = row[12],
-                                        waiting_time_of_transaction = row[13],
-                                        feerate_of_transaction = row[14],
+                                        index_block_height = row[11],
+                                        confirm_time = row[12],
+                                        waiting_time = row[13],
+                                        feerate = row[14],
                                         enter_block_height = row[15],
-                                        waiting_block_number = row[16],
-                                        valid_time_intx = row[17],
-                                        valid_block_intx = row[18],
+                                        waiting_block_num = row[16],
+                                        valid_time = row[17],
+                                        valid_block_height = row[18],
                                         valid_waiting = row[19],
-                                        last_block_interval_intx = row[20]))
+                                        last_block_interval = row[20]))
         bulk_mgr.done()

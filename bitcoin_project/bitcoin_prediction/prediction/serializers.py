@@ -4,4 +4,9 @@ from .models import Simulation
 class SimulationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Simulation
-        fields = '__all__'
+        fields = (
+            'id',
+            'priority',
+            'fee',
+            'expected_waiting_time',
+        )

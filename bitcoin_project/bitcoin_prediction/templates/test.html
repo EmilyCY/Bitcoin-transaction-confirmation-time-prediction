@@ -10,14 +10,7 @@
 
 {% block content %}
 
-    <!-- Filter the chart with the selected dates -->
-    {% for date,price in price.items %}
-    <span class="date-item">{{date}} </span> |
-    <span class="price-item">{{price}}</span> 
-    <br>
-    {% endfor %}
-
-    <form id="contents" name="contents" method="post" action="{% url 'test_result' %}"> 
+    <form id="contents" name="contents" method="post" action="{% url 'result' %}"> 
         {% csrf_token %}
         priority : <input name="priority" type="number"> 
         fee rate : <input name="fee_rate" type="number"> 

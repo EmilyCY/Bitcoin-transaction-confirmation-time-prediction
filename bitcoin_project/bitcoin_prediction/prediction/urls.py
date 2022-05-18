@@ -4,9 +4,12 @@ from .views import SimulationView
 
 urlpatterns = [
     path("main/", views.main, name="main"),
+    path('main/bitcoinPrice/', views.bitcoinPrice, name = 'bitcoinPrice'),
+    path('main/calculator/', views.calculator, name = 'calculator'),
+    path('main/faq/', views.faq, name = 'faq'),
+    path('main/graph/', views.graph, name = 'graph'),
+    path('main/result/', views.SimulationView.as_view(), name='result'),
+
     path("population/", views.population, name="population"),
-    path('main/simulation/<int:priority>/<int:fee>', SimulationView.as_view(), name='simulation'),
-    
     path('main/test/', views.test, name='test'),
-    path('main/test_result', SimulationView.as_view(), name='test_result'),
 ]

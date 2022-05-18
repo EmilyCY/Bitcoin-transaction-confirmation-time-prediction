@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Current BTC Price
+{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+    <p>BTC/AUD cryptocurrrency</p>
+    <h1>Bitcoin to Australian dollar </h1>
+    <h2>Current Price of BTC : AU$ {{cp}}</h2>
+    <p>Current Time : {{dateTime}}</p>
+
+    {{ div_placehold }}
+
+{% endblock content %}

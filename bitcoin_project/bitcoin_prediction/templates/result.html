@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Expected Waiting Time
+{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <h1>Transaction Estimation Result</h1>
+    <div class="containerResult">
+        <div class="result">
+            Lambda : {{ data.lambda }}<br/>
+            Priority : {{ data.priority }}<br/>
+            Fee : {{ data.fee }}<br/>
+            Waiting_time : {{ data.expected_waiting_time }}<br/>
+        </div>
+        <button type="button" class="backButton" onclick="move();">Back</button>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        function move() { 
+            //alert("send");
+            location.href = "{% url 'calculator' %}"
+        }
+    </script>
+{% endblock script %}

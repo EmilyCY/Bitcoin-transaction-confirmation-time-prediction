@@ -1,0 +1,42 @@
+
+.containerResult{
+  position: relative;
+  background-color: rgb(232, 232, 232);
+  
+  height: 320px;
+  width: 500px;
+  text-align: center;
+  top: 50%;
+  left:50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#contents{
+  margin-top: 200px;
+  text-align: center;
+}
+
+#contents.h1{
+  color: green;
+}
+
+.result{
+  
+  text-align: left;
+  margin-top: 250px;
+  margin-left: 50px;
+  padding-top: 15px;
+  line-height: 3;
+}
+
+.space {
+    width: 10px;
+    height: auto;
+    display: inline-block;
+  }
+
+.nav-item  a:hover {
+    background-color: #198754;
+    color: white;
+}

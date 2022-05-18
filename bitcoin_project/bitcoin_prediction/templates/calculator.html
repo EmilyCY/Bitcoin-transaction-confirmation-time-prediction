@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Transaction Estimation
+{% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <h1>Transaction Estimation</h1>
+    <form id="contents" name="contents" method="post" action="{% url 'result' %}"> 
+        {% csrf_token %}
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        Fee rate : <input name="fee_rate" type="number">
+        <button type="button" onclick="send();">Expect Time</button>
+    </form>
+</div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        function send() { 
+            //alert("send");
+            document.getElementById("contents").submit();
+        }
+    </script>
+{% endblock script %}

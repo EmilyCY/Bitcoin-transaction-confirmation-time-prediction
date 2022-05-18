@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Validation Graph
+{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <h1>This is graph page</h1>
+    {{ div_placehold }}
+    <img src="{% static 'image/plot.png' %}" alt="plot" />
+    <img src="{% static 'image/zoomed_plot.png' %}" alt="plot" />
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Transaction, Simulation
+from .models import Simulation, Transaction
 
 # Register your models here.
 admin.site.register(Transaction)
