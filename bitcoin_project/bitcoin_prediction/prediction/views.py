@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 
-from .populate_db import load_data
+from .populate_db import load_data, load_data_to_model
 from .queueing_model_simulation import Simulation1
+from .estimating_waiting_time import EstimatingWaitingTime
 import requests
 from datetime import date, timedelta, datetime
 from flask import Markup
 import pandas as pd
 import plotly
 import plotly.express as px
+import plotly.graph_objects as go
 URL = "https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}"
 
 # Create your views here.
@@ -16,7 +18,7 @@ def main(request):
     return render(request, 'base.html')
 
 def population(request):
-    load_data(request)
+    load_data_to_model(request)
     return render(request, 'base.html')
 
 def test(request):
@@ -27,19 +29,36 @@ class SimulationView(APIView):
     context = {}
 
     def post(self, request):
-        value_lambda = request.POST.get('lambda')
-        priority = request.POST.get('priority')
-        fee_rate = request.POST.get('fee_rate')
+        #value_lambda = request.POST.get('lambda')
+        priority = int(request.POST.get('priority'))
+        fee_rate = float(request.POST.get('fee_rate'))
+
+        p_list = ['Priority1', 'Priority2', 'Priority3', 'Priority4']
+        waiting_time_on_model = EstimatingWaitingTime.p_group_response_time
         expected_waiting_time = Simulation1.waiting_times_estimate
 
+        col_name = ['priority', 'waiting_time', 'expected_waiting_time']
+        df = pd.DataFrame(zip(p_list, waiting_time_on_model, expected_waiting_time), columns=col_name)
+
+        data1 = go.Bar(x=df['priority'], y=df['waiting_time'], name='Waiting Time on Model')
+        data2 = go.Bar(x=df['priority'], y=df['expected_waiting_time'], name='Expected Waiting Time on Simulation')
+        layout = go.Layout(title='Comparison of Waiting time')
+        fig = go.Figure(data=[data1, data2], layout=layout, layout_yaxis_range=[0, 20000])
+        div_placehold = plotly.io.to_html(fig, include_plotlyjs=False, full_html=False)
+
         self.context = {
-            'lambda': value_lambda, 'priority': priority, 'fee': fee_rate, 'expected_waiting_time': expected_waiting_time[int(priority)]
+            #'lambda': value_lambda,
+            'priority': priority+1,
+            'fee': fee_rate,
+            'waiting_time_on_model': round(waiting_time_on_model[priority], 2),
+            'expected_waiting_time': round(expected_waiting_time[priority], 2),
+            'div_placehold': Markup(div_placehold)
         }
         
         return render(request, self.template_name, {'data' : self.context})
 
-def home (request):
-    return render (request, 'home.html',{})
+#def home (request):
+#    return render (request, 'home.html',{})
 
 def calculator (request):
     return render (request, 'calculator.html',{})

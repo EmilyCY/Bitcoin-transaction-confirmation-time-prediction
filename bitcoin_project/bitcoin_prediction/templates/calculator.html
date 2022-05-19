@@ -13,12 +13,12 @@
         {% csrf_token %}
         <label for="priority">Priority:</label>
         <select id="priority" name="priority">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
         </select>
-        Fee rate : <input name="fee_rate" type="number">
+        Fee rate : <input name="fee_rate" type="number", step="0.001">
         <button type="button" onclick="send();">Expect Time</button>
     </form>
 </div>

@@ -1,8 +1,11 @@
+#contents{
+  margin-top: 200px;
+  text-align: center;
+}
 
 .containerResult{
   position: relative;
   background-color: rgb(232, 232, 232);
-  
   height: 320px;
   width: 500px;
   text-align: center;
@@ -12,17 +15,7 @@
   transform: translate(-50%, -50%);
 }
 
-#contents{
-  margin-top: 200px;
-  text-align: center;
-}
-
-#contents.h1{
-  color: green;
-}
-
 .result{
-  
   text-align: left;
   margin-top: 250px;
   margin-left: 50px;

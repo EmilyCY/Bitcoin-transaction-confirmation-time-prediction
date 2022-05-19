@@ -1,9 +1,8 @@
 from django.urls import path
 from . import views
-from .views import SimulationView
 
 urlpatterns = [
-    path("main/", views.main, name="main"),
+    path("main/", views.bitcoinPrice, name="main"),
     path('main/bitcoinPrice/', views.bitcoinPrice, name = 'bitcoinPrice'),
     path('main/calculator/', views.calculator, name = 'calculator'),
     path('main/faq/', views.faq, name = 'faq'),

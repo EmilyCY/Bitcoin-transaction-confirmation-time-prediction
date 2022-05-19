@@ -1,5 +1,29 @@
 {% extends "base.html" %}
 
+{% block style %}
+    <style>
+        .containerResult{
+            position: relative;
+            background-color: rgb(232, 232, 232);
+            height: 320px;
+            width: 500px;
+            text-align: center;
+            top: 50%;
+            left:50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .result{
+            text-align: left;
+            margin-top: 250px;
+            margin-left: 50px;
+            padding-top: 15px;
+            line-height: 3;
+        }
+    </style>
+{% endblock style %} 
+
 {% block title %}
     Expected Waiting Time
 {% endblock title %}
@@ -10,13 +34,28 @@
     <h1>Transaction Estimation Result</h1>
     <div class="containerResult">
         <div class="result">
-            Lambda : {{ data.lambda }}<br/>
-            Priority : {{ data.priority }}<br/>
-            Fee : {{ data.fee }}<br/>
-            Waiting_time : {{ data.expected_waiting_time }}<br/>
+            <table>
+                <tr>
+                    <td>Priority :</td>
+                    <td>{{ data.priority }}</td>
+                </tr>
+                 <tr>
+                    <td>Fee Rate :</td>
+                    <td>{{ data.fee }}</td>
+                </tr>
+                 <tr>
+                    <td>Waiting Time based on Model :</td>
+                    <td>{{ data.waiting_time_on_model }} seconds</td>
+                </tr>
+                <tr>
+                    <td>Expected Waiting Time :</td>
+                    <td>{{ data.expected_waiting_time }} seconds</td>
+                </tr>
+            </table>
         </div>
         <button type="button" class="backButton" onclick="move();">Back</button>
     </div>
+    {{ data.div_placehold }}
 </div>
 {% endblock content %}
 

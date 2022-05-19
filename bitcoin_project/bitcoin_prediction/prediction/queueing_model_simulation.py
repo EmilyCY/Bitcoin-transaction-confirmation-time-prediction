@@ -9,6 +9,7 @@
 # 
 # https://numpy.org/doc/stable/reference/random/generated/numpy.random.exponential.html
 
+import imp
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -20,24 +21,18 @@ from collections import namedtuple as nt
 
 from .models import Transaction
 from sqlalchemy import create_engine
+from .populate_db import load_data
 import plotly
 import plotly.express as px
 
 class Simulation1:
     # Data Loading
     # export 1000 data to test quickly
-    engine = create_engine('postgresql://postgres:admin123@localhost:5432/transactions', echo=False)
-    sql_query = 'SELECT * FROM transaction ORDER BY RANDOM() LIMIT 1000'
-    data = pd.read_sql_query(sql_query, con = engine)
-    
+    #engine = create_engine('postgresql://postgres:admin123@localhost:5432/transactions', echo=False)
+    #sql_query = 'SELECT * FROM transaction ORDER BY RANDOM() LIMIT 1000'
+    #data = pd.read_sql_query(sql_query, con = engine)
+    data = load_data()
     """
-    # loading all data from model to pandas dataframe
-    queryset = Transaction.objects.values('index', 'inputs', 'outputs', 'trans_version', 'trans_size', 'trans_weight', 
-                    'received_time', 'relay_node', 'locktime', 'trans_fee', 'confirmed_block_height', 'index_block_height',
-                    'confirm_time', 'waiting_time', 'feerate', 'enter_block_height', 'waiting_block_num', 'valid_time',
-                    'valid_block_height', 'valid_waiting', 'last_block_interval')
-    data = pd.DataFrame(queryset)
-
     # load the data 
     data1 = pd.read_csv("TimetxinBlock621500.csv")
     data1.columns = ['index', 'inputs', 'outputs', 'trans_version', 'trans_size', 'trans_weight', 'received_time',
