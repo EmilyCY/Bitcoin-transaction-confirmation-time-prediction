@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 
-from .populate_db import load_data, load_data_to_model
+from .populate_db import load_data_to_model
 from .queueing_model_simulation import Simulation1
 from .estimating_waiting_time import EstimatingWaitingTime
 import requests
@@ -29,17 +29,21 @@ class SimulationView(APIView):
     context = {}
 
     def post(self, request):
-        #value_lambda = request.POST.get('lambda')
-        priority = int(request.POST.get('priority'))
+        num_of_priorities = int(request.POST.get('num_of_priorities'))
         fee_rate = float(request.POST.get('fee_rate'))
 
-        p_list = ['Priority1', 'Priority2', 'Priority3', 'Priority4']
+        # decide priority depending on fee rate
+        # ...
+        priority = 0
+
+        # get lists of calculated waiting time from each model
         waiting_time_on_model = EstimatingWaitingTime.p_group_response_time
         expected_waiting_time = Simulation1.waiting_times_estimate
 
+        # create graph
+        p_list = ['Priority1', 'Priority2', 'Priority3', 'Priority4']
         col_name = ['priority', 'waiting_time', 'expected_waiting_time']
         df = pd.DataFrame(zip(p_list, waiting_time_on_model, expected_waiting_time), columns=col_name)
-
         data1 = go.Bar(x=df['priority'], y=df['waiting_time'], name='Waiting Time on Model')
         data2 = go.Bar(x=df['priority'], y=df['expected_waiting_time'], name='Expected Waiting Time on Simulation')
         layout = go.Layout(title='Comparison of Waiting time')
@@ -47,7 +51,6 @@ class SimulationView(APIView):
         div_placehold = plotly.io.to_html(fig, include_plotlyjs=False, full_html=False)
 
         self.context = {
-            #'lambda': value_lambda,
             'priority': priority+1,
             'fee': fee_rate,
             'waiting_time_on_model': round(waiting_time_on_model[priority], 2),

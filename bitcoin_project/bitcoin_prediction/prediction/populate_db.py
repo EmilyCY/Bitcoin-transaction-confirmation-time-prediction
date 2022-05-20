@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 def load_data():
     #COLS_TO_USE = [4,5,6,9,10,12,13,14,15,16]
     #HEADER_NAMES = ['trans_size','trans_weight','received_time','trans_fee','confirmed_block_height','confirm_time','waiting_time','feerate','enter_block_height','waiting_block_num']
-
+    
     queryset = Transaction.objects.values('trans_size','trans_weight','received_time','trans_fee','confirmed_block_height','confirm_time','waiting_time','feerate','enter_block_height','waiting_block_num')
     df = pd.DataFrame(queryset)
     return df
@@ -49,7 +49,7 @@ class BulkCreateManager(object):
 
 def load_data_to_model(request):
     scriptpath = os.path.dirname(os.getcwd())
-    filename = os.path.join(scriptpath, 'bitcoin_prediction/static/data/TimetxinBlock622500.csv')
+    filename = os.path.join(scriptpath, 'bitcoin_prediction/static/data/TimetxinBlock621500-622500.csv')
     
     with open(filename, 'r') as csv_file:
         bulk_mgr = BulkCreateManager(chunk_size=20)

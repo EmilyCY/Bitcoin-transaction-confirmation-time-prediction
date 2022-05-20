@@ -26,11 +26,3 @@ class Transaction(models.Model):
 
     class Meta:
         db_table = 'transaction'
-
-class Simulation(models.Model):
-    priority = models.IntegerField()
-    fee = models.FloatField(default=0)
-    expected_waiting_time = models.FloatField(default=0)
-
-    def __str__(self) -> str:
-        return str(self.expected_waiting_time)
