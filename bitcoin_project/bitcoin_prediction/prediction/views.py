@@ -37,7 +37,7 @@ class SimulationView(APIView):
         priority = 0
 
         # get lists of calculated waiting time from each model
-        waiting_time_on_model = EstimatingWaitingTime.p_group_response_time
+        waiting_time_on_model = EstimatingWaitingTime.P_GROUP_WAITING_TIMES.get(num_of_priorities)
         expected_waiting_time = Simulation1.waiting_times_estimate
 
         # create graph
