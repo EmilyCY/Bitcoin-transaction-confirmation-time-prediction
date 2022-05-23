@@ -14610,6 +14610,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_GROUP_SIZE</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">P_GROUP_BLOCK_INTERVAL_DICTIONARY</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">2</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="mi">4</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+    <span class="mi">6</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">23</span><span class="p">],</span>
+    <span class="mi">8</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">P_GROUP_WAITING_TIMES</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="n">COLS_TO_USE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
 <span class="n">HEADER_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="s1">&#39;received_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee&#39;</span><span class="p">,</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;confirm_time&#39;</span><span class="p">,</span><span class="s1">&#39;waiting_time&#39;</span><span class="p">,</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">,</span><span class="s1">&#39;enter_block_height&#39;</span><span class="p">,</span><span class="s1">&#39;no_block_confirm&#39;</span><span class="p">]</span>
@@ -14683,7 +14690,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Block-Size">Block Size<a class="anchor-link" href="#Block-Size">&#182;</a></h3>
+<h3 id="Block-Size-&amp;-Service-Rate-(Mu)">Block Size &amp; Service Rate (Mu)<a class="anchor-link" href="#Block-Size-&amp;-Service-Rate-(Mu)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14697,59 +14704,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">block_groups</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">])[</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="n">mean_block_size</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">block_groups</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Block Size: &quot;</span><span class="p">,</span> <span class="n">mean_block_size</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Mean Block Size:  2266.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Service-Rate-(Mu)">Service Rate (Mu)<a class="anchor-link" href="#Service-Rate-(Mu)">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">service_time</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">service_time</span> <span class="o">=</span> <span class="mi">600</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">service_time</span> <span class="c1"># = 0.0016666666666666668</span>
 <span class="c1">#mu = (1/service_time)*mean_block_size # = 3.776666666666667</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Block Size: &quot;</span><span class="p">,</span> <span class="n">mean_block_size</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mu: &quot;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 </pre></div>
 
@@ -14772,7 +14730,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Mu:  0.0016666666666666668
+<pre>Mean Block Size:  2266.0
+Mu:  0.0016666666666666668
 </pre>
 </div>
 </div>
@@ -14792,7 +14751,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14809,11 +14768,35 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="k">case</span> <span class="k">_</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="n">block_intervals</span> <span class="o">=</span> <span class="n">calculate_block_intervals</span><span class="p">(</span><span class="n">P_GROUP_SIZE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block Intervals:&quot;</span><span class="p">,</span> <span class="n">block_intervals</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Block Intervals: [1, 3, 10]
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14844,10 +14827,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="c1">#boundary = data[&#39;fee_rate&#39;].nlargest(transaction_counts).iloc[-1]</span>
         <span class="n">boundary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">transaction_counts</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boundary</span><span class="p">)</span>
+    <span class="n">feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">feerate_range</span>
 
 <span class="n">p_groups_feerate_range</span> <span class="o">=</span> <span class="n">calculate_feerate_for_priority_groups</span><span class="p">(</span><span class="n">dataFrame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">),</span> <span class="n">block_intervals</span><span class="p">)</span>
-<span class="n">p_groups_feerate_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority Group Range (Fee Rate): &quot;</span><span class="p">,</span> <span class="n">p_groups_feerate_range</span><span class="p">)</span>
 </pre></div>
 
@@ -14898,7 +14881,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_wait_times</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_lambda_for_priority_groups</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feerate_range</span><span class="p">):</span>
+    <span class="n">p_groups_lambda</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">received_time_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">received_time_min</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">current</span><span class="p">,</span> <span class="nb">next</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feerate_range</span><span class="p">,</span><span class="n">feerate_range</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">p_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">current</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">next</span><span class="p">)]</span>
+        <span class="n">p_transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_df</span><span class="p">)</span>
+        <span class="n">p_lambda</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p_transaction_count</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">received_time_max</span> <span class="o">-</span> <span class="n">received_time_min</span><span class="p">)</span>
+        <span class="n">p_groups_lambda</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p_groups_lambda</span>
+
+<span class="n">raw_wait_times</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">p_groups_lambda</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">transaction_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">)</span>
 <span class="n">received_time_max</span> <span class="o">=</span> <span class="n">dataFrame</span><span class="p">[</span><span class="s1">&#39;received_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -14983,11 +14977,7 @@ Sum Of All Lambda:  3.083224253031129
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">sciPy_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">lambda_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
-
-<span class="k">def</span> <span class="nf">NewtonMethod</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">NewtonMethod</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
     <span class="n">fx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">lam</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">m_u</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="n">block_size</span><span class="p">)</span>
     <span class="n">dfx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">m_u</span><span class="o">*</span><span class="p">(</span><span class="n">block_size</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">block_size</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="n">block_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">lam</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -15003,6 +14993,21 @@ Sum Of All Lambda:  3.083224253031129
     <span class="c1">#dfx = lambda x: m_u*(block_size*x**block_size + x**block_size - 1) - lam</span>
     <span class="c1">#return newton(fx, x0, fprime=dfx, args=(), tol=epsilon, maxiter=max_iteration, fprime2=None)</span>
     <span class="k">return</span> <span class="n">newton</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">tol</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">max_iteration</span><span class="p">,</span> <span class="n">fprime2</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">calculate_z_priority</span><span class="p">(</span><span class="n">lambda_priority_group</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">block_size</span><span class="p">):</span>
+    <span class="n">my_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sciPy_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lambda_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lambda_priority_group</span><span class="p">)):</span>
+        <span class="n">lambda_sum</span> <span class="o">+=</span> <span class="n">lambda_priority_group</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">my_p_group_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">NewtonMethod</span><span class="p">(</span><span class="n">lambda_sum</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">))</span>
+        <span class="n">sciPy_p_group_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SciPyNewton</span><span class="p">(</span><span class="n">lambda_sum</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">block_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+    <span class="c1">#return my_p_group_z</span>
+    <span class="k">return</span> <span class="n">sciPy_p_group_z</span>
+    
+<span class="n">my_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sciPy_p_group_z</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lambda_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">)):</span>
     <span class="n">lambda_sum</span> <span class="o">+=</span> <span class="n">p_groups_lambda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -15069,7 +15074,18 @@ My Z: 0.9998145619120352, SciPy Z: 0.9998145619140734
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prev_transaction_in_queue</span> <span class="o">=</span> <span class="mf">0.0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_wait_time_for_priority_groups</span><span class="p">(</span><span class="n">p_group_lambda</span><span class="p">,</span> <span class="n">p_group_z</span><span class="p">):</span>
+    <span class="n">prev_transaction_in_queue</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">p_group_response_time</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_group_lambda</span><span class="p">)):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_group_z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># L(y) = z(x) / (1 - z(x))</span>
+        <span class="n">transaction_in_queue</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">-</span> <span class="n">prev_transaction_in_queue</span> <span class="c1"># L(x) = L(y) - L(y-1)</span>
+        <span class="n">prev_transaction_in_queue</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">response_time</span> <span class="o">=</span> <span class="n">transaction_in_queue</span> <span class="o">/</span> <span class="n">p_group_lambda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># W(x) = L(x) / Lambda(x)</span>
+        <span class="n">p_group_response_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p_group_response_time</span>
+
+<span class="n">prev_transaction_in_queue</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">p_group_response_time</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p_groups_lambda</span><span class="p">)):</span>
@@ -15117,6 +15133,63 @@ Average Response Time In Queue (W): 2917.0059775136638
 Priority Group 4
 Average Transaction In Queue (L):  2147.554676179624
 Average Response Time In Queue (W): 5872.883583023225
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">initialise_values</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">block_intervals</span><span class="p">):</span>
+    <span class="n">p_group_wait_time</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">block_group</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">])[</span><span class="s1">&#39;confirmed_block_height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">average_block_size</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">block_group</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="n">s_time</span> <span class="o">=</span> <span class="mi">600</span>
+    <span class="n">m_u</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">s_time</span> <span class="c1"># = 0.0016666666666666668</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">block_intervals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">feerate_range</span> <span class="o">=</span> <span class="n">calculate_feerate_for_priority_groups</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;fee_rate&#39;</span><span class="p">),</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">p_lambda</span> <span class="o">=</span> <span class="n">calculate_lambda_for_priority_groups</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feerate_range</span><span class="p">)</span>
+        <span class="n">p_z</span> <span class="o">=</span> <span class="n">calculate_z_priority</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">,</span> <span class="n">m_u</span><span class="p">,</span> <span class="n">average_block_size</span><span class="p">)</span>
+        <span class="n">p_wait_time</span> <span class="o">=</span> <span class="n">calculate_wait_time_for_priority_groups</span><span class="p">(</span><span class="n">p_lambda</span><span class="p">,</span> <span class="n">p_z</span><span class="p">)</span>
+        <span class="n">p_group_wait_time</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_wait_time</span>
+    <span class="k">return</span> <span class="n">p_group_wait_time</span>
+
+<span class="k">def</span> <span class="nf">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="n">num_of_priorities</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">P_GROUP_WAITING_TIMES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">num_of_priorities</span><span class="p">)</span>
+
+<span class="n">P_GROUP_WAITING_TIMES</span> <span class="o">=</span> <span class="n">initialise_values</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">,</span> <span class="n">P_GROUP_BLOCK_INTERVAL_DICTIONARY</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 2 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Wait Times For 2 Priority Groups: [743.4900615259027, 1638.8303977947135, 2917.0059775136638, 5872.883583023225]
 </pre>
 </div>
 </div>
