@@ -12,15 +12,25 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     {% block style %}
+    <style>
+        body{
+           background : linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           min-height:100%;
+           min-width:100%; 
+       }
+    </style>
     {% endblock style %} 
 
     <title>{% block title %} Prediction BTC Delay {% endblock title %}</title>
 </head>
 <body>
-    <div class="">
+    <div class="containerBase">
     {% block content %}
     {% include 'navbar.html' %}
         <h1>Data Uploaded</h1>
+        <img src="{% static 'image/Bitcoin.jpg' %}" style="width:100%"/>
     {% endblock content %}
     </div>
 

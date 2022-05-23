@@ -1,14 +1,66 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    F&A
+    Frequent Ask Questions
 {% endblock title %}
+
+{% block style %}
+<style>
+    .containerFaq{
+        padding-top: 80px;
+        padding-left: 50px;
+        padding-right: 30px;
+        padding-bottom: 30px;        
+    }
+
+    .box2{        
+        background-image:linear-gradient(white,lightgray );
+        border-radius: 5px;
+        width:95%;
+        height: 100%;
+        padding-top: 30px;
+        padding-left: 50px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+    }
+</style>
+{% endblock style %} 
 
 {% block content %}
 {% include 'navbar.html' %}
-    <h1>Frequent ask Question</h1>
-    <h2>What is Bitcoin?</h2>
-    <p>lorem ipsum</p>
-    <h2>How?</h2>
+<div class= 'containerFaq'>
+    <div class="box2">
+        <h1>Frequent ask Question</h1>
+        <img src="{% static 'image/Crypto.jpg' %}" style="width: 100%; "  />
+        <br><br><h2>What is Bitcoin?</h2>
+        <p>Bitcoin is a decentralised digital currency that can be transferred in the peer-to-peer bitcoin network. 
+            the idea being that the ledger is truly decentralised, being owned by no one and 
+            needing a community consensus to be accepted as the ‘true’ blockchain.
+            Bitcoin transactions are verified by network nodes through cryptography and 
+            recorded in a public distributed ledger called a blockchain.</p>
+        
+        <h2>How are we calculate the Bitcoin transaction?</h2>
+        <p> We calculate the transaction using queueing model/Theory. Queueing Theory is the studying of service systems that need to capture customer arrivals, service time, and
+                the number of servers in the system and how much each of these factors affects the time it takes for a customer to enter and exit the system. Queueing models are designed to be investigative, 
+                to be able to identify bottlenecks in a system, and forecast the ways in which potential improvements to one or a few specific areas could impact the other areas. 
+            These models can come in many different forms and are often defined using Kendall’s notation. </p>
+        <h2>What is the objectives of this project? </h2>
+        <p>The objectives of this project is to create a mathematical representation of the Bitcoin transaction confirmation process. 
+            The queueing model will be used to investigate the relationship between the expected confirmation time of a transaction and 
+            the other variables within the model, such as the arrival rate, service rate, fee rate, and more.
+        <br> Specifically, the objectives of this project include:
+        <br>•	Design and develop a model to simulate the bitcoin transactions' arrival and confirmation process based on queueing Theory   
+        <br>•	Predict the waiting time of transactions under various traffic conditions and fee rates, using real-life bitcoin data (e.g., transaction fees) as input 
+        <br>•	Use the output data from the model to analyse the relationship between the transaction confirmation time and other transaction factors such as the fees, mempool traffic conditions, or arrival rate. 
+        <br>•	Help bitcoin traders to decide on the transaction fees to offer to achieve individually expected waiting time considering the changing traffic conditions.   
+            </p>
+        <h2>what is the project scope?</h2>
+        <p>The scope of this project is limited to creating a conceptual, exploratory model for analytical use by the team and 
+            then delivering some key findings using this model. This project is not aiming to deliver a software prototype, 
+            nor is it taking into consideration the usability (e.g. user-friendliness, user experience, etc.)</p>
+    </div>
+    <img src="{% static 'image/iStock-892082986-min.jpg' %}" style="width: 95%; "  />    
+</div>
+{% include 'footer.html' %}
 {% endblock %}
-

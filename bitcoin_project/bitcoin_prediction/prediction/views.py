@@ -70,12 +70,7 @@ def faq (request):
     return render (request, 'faq.html',{})
 
 def graph (request):
-    #test graph
-    div_placehold = Simulation1.div
-    context = {
-        'div_placehold': Markup(div_placehold)
-    }
-    return render (request, 'graph.html', context)
+    return render (request, 'graph.html', {})
 
 def get_price(coin, currency):
     try:

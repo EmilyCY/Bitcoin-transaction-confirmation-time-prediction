@@ -1,39 +1,59 @@
 {% extends "base.html" %}
-
-{% block style %}
-    <style>
-        .containerResult{
-            position: relative;
-            background-color: rgb(232, 232, 232);
-            height: 320px;
-            width: 500px;
-            text-align: center;
-            top: 50%;
-            left:50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .result{
-            text-align: left;
-            margin-top: 250px;
-            margin-left: 50px;
-            padding-top: 15px;
-            line-height: 3;
-        }
-    </style>
-{% endblock style %} 
+{% load static %}
 
 {% block title %}
     Expected Waiting Time
 {% endblock title %}
 
+{% block style %}
+<style>
+    .containerR{
+        padding-top: 80px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .boxResult{
+        background-color: whitesmoke;
+        border-radius: 5px;
+        width:100%;
+        height: 700px;
+        padding-top: 30px;
+        padding-left: 50px;
+        padding-bottom: 60px;
+    }
+
+    .containerResult{
+        position: relative;
+        background-color: rgb(232, 232, 232);
+        height: 320px;
+        width: 500px;
+        text-align: center;
+        left:50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
+    .result{
+        background-color: rgb(238, 238, 238);
+        background-position: center;
+        box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 40%;
+        height: 50%;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+</style>
+{% endblock style %}
+
 {% block content %}
 {% include 'navbar.html' %}
-<div class="container">
-    <h1>Transaction Estimation Result</h1>
-    <div class="containerResult">
-        <div class="result">
+<div class="containerR">  
+    <div class="boxResult">
+        <h1>Transaction Estimation Result</h1> 
+        <center><div class="result" style="margin-top: 50px;">
             <table>
                 <tr>
                     <td>Priority :</td>
@@ -52,11 +72,14 @@
                     <td>{{ data.expected_waiting_time }} seconds</td>
                 </tr>
             </table>
+            <button type="button" class="btn btn-primary" style="margin-top: 30px;" onclick="move();">Back</button>
+        </div></center>
+        <div>
+            {{ data.div_placehold }}
         </div>
-        <button type="button" class="backButton" onclick="move();">Back</button>
     </div>
-    {{ data.div_placehold }}
 </div>
+<!-- {% include 'footer.html' %} -->
 {% endblock content %}
 
 {% block script %}

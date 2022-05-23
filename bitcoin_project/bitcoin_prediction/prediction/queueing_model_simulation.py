@@ -231,9 +231,9 @@ class Simulation1:
 
 
         # example of generating graph
-        test_df = data['received_time']
-        fig = px.histogram(test_df, x="received_time", title='test histogram')
-        div = plotly.io.to_html(fig, include_plotlyjs=False, full_html=False)
+        #test_df = data['received_time']
+        #fig = px.histogram(test_df, x="received_time", title='test histogram')
+        #div = plotly.io.to_html(fig, include_plotlyjs=False, full_html=False)
         
     except Transaction.DoesNotExist:
         print("No data in transaction relation")

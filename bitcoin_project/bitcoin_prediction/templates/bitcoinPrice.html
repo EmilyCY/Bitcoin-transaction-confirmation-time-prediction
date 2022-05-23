@@ -1,17 +1,67 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     Current BTC Price
 {% endblock title %}
 
+{% block style %}
+<style>
+    .containerBP{
+        padding-top: 80px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+    }
+
+    .box1{
+        background-color: whitesmoke;
+        border-radius: 5px;
+        width:100%;
+        height: 700px;
+        padding-top: 30px;
+        padding-left: 50px;
+        padding-bottom: 60px;
+    }
+
+    .btcGraph{
+        background-color: rgb(238, 238, 238);
+        background-position: center;
+        box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 68%;
+        z-index: 5;
+        position: relative;
+        margin-right: 50px;
+    }
+
+    .coin{
+        width: 400px;
+        display: block;
+        float: right;
+        transform: rotate(40deg);
+        z-index: 1;      
+    }
+</style>
+{% endblock style%}
+
 {% block content %}
 {% include 'navbar.html' %}
-
-    <p>BTC/AUD cryptocurrrency</p>
-    <h1>Bitcoin to Australian dollar </h1>
-    <h2>Current Price of BTC : AU$ {{cp}}</h2>
-    <p>Current Time : {{dateTime}}</p>
-
-    {{ div_placehold }}
-
+<body>
+    <div class="containerBP">
+        <div class="box1">
+            <img class = "coin" src="{% static 'image/bitcoin_PNG7.png' %}" alt="btcCoin"/>
+            <p>BTC/AUD cryptocurrrency</p>
+            <h1>Bitcoin to Australian dollar </h1>
+            <h2>Current Price of BTC : AU$ {{cp}}</h2>
+            <p>Current Time : {{dateTime}}</p>
+            <div class="btcGraph">
+                {{ div_placehold }}
+            </div>
+        </div>
+        
+        <a href="https://mempool.space/"><img src="{% static 'image/mempool-space-preview.png' %}" alt="mempool" style="width: 100%" /></a>
+        
+    </div>
+</body>
+{% include 'footer.html' %}
 {% endblock content %}

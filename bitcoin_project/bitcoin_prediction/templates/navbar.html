@@ -1,18 +1,37 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<style>
+  .navbar{
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .btn-outline-success {
+      margin-left: 5px;
+  }
+
+  .nav-item > a:hover {
+      color: white;
+    }
+    
+
+  .navbar-brand{
+      font-weight: bold;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'main' %}">BitcoinProject</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'bitcoinPrice' %}">Bitcoin Price</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'calculator' %}">Transaction Estimation</a>
+            <a class="nav-link" href="{% url 'calculator' %}">Transaction Estimator</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'graph' %}">Graph</a>
