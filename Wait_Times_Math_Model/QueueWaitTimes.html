@@ -15167,7 +15167,10 @@ Average Response Time In Queue (W): 5872.883583023225
     <span class="k">return</span> <span class="n">P_GROUP_WAITING_TIMES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">num_of_priorities</span><span class="p">)</span>
 
 <span class="n">P_GROUP_WAITING_TIMES</span> <span class="o">=</span> <span class="n">initialise_values</span><span class="p">(</span><span class="n">dataFrame</span><span class="p">,</span> <span class="n">P_GROUP_BLOCK_INTERVAL_DICTIONARY</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 2 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 2 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 4 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 6 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wait Times For 8 Priority Groups:&quot;</span><span class="p">,</span> <span class="n">Get_Wait_Times_Based_On_Num_Of_Priorities</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15189,7 +15192,10 @@ Average Response Time In Queue (W): 5872.883583023225
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Wait Times For 2 Priority Groups: [743.4900615259027, 1638.8303977947135, 2917.0059775136638, 5872.883583023225]
+<pre>Wait Times For 2 Priority Groups: [743.4900615259027, 3260.7014455515123]
+Wait Times For 4 Priority Groups: [743.4900615259027, 1638.8303977947135, 2917.0059775136638, 5872.883583023225]
+Wait Times For 6 Priority Groups: [743.4900615259027, 1482.7163201834983, 2145.484056944325, 3003.95895361719, 4277.576084859145, 6811.416797072625]
+Wait Times For 8 Priority Groups: [743.4900615259027, 1482.7163201834983, 2145.484056944325, 2920.2290929531323, 3793.455068134325, 4734.751333144836, 5808.567123895104, 7624.408084316089]
 </pre>
 </div>
 </div>
