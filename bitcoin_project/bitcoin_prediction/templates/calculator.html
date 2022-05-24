@@ -144,8 +144,8 @@
                         </div>
                         
                     </div>
-                    <div class="popup" onclick="myFunction()">Priority Level
-                        <span class="popuptext" id="myPopup">A transaction is given a priority value according to its attributes such as the remittance amount and fee, and transactions with high priorities are likely to be confirmed faster than those with low priorities</span>
+                    <div class="popup" onclick="myFunction()">Number of Priority Group
+                        <span class="popuptext" id="myPopup">The difference between each number of priority groups is how the transactions fee rate is split and sorted between each of the priority group.</span>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -172,8 +172,8 @@
                     </div>
                     </fieldset>
 
-                    <label class="col-sm-0 col-form-label">Fee rate :</label>
-                    <input class="form-control" name="fee_rate" type="number" step="0.001" style="width: 49%"required />
+                    <label class="col-sm-0 col-form-label">Fee Rate :</label>
+                    <input class="form-control" name="fee_rate" type="number" step="0.001" style="width: 49%" min="0" required />
 
                     <div class="row mb-3" style="width: 500px">
                         <label for="inputTansaction" class="col-sm-0 col-form-label">Comments</label>

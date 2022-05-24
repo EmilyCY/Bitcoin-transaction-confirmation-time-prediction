@@ -75,28 +75,28 @@ def calculate_wait_time_for_priority_groups(p_group_lambda, p_group_z):
 class EstimatingWaitingTime:
     P_GROUP_WAITING_TIMES = {}
 
-    #try:
-    #    Transaction.objects.exists()
-    dataFrame = load_data()
+    try:
+        Transaction.objects.exists()
+        dataFrame = load_data()
 
-    dataFrame = dataFrame[dataFrame['waiting_time'] >= 0] # Remove any rows with negative values for waiting_time
+        dataFrame = dataFrame[dataFrame['waiting_time'] >= 0] # Remove any rows with negative values for waiting_time
 
-    block_groups = dataFrame.groupby(['confirmed_block_height'])['confirmed_block_height'].count()
-    mean_block_size = float(round(block_groups.mean()))
-    service_time = 600
-    mu = 1/service_time
+        block_groups = dataFrame.groupby(['confirmed_block_height'])['confirmed_block_height'].count()
+        mean_block_size = float(round(block_groups.mean()))
+        service_time = 600
+        mu = 1/service_time
 
-    for key, value in P_GROUP_BLOCK_INTERVAL_DICTIONARY.items():
-        feerate_range = calculate_feerate_for_priority_groups(dataFrame.sort_values('feerate'), value)
-        p_lambda = calculate_lambda_for_priority_groups(dataFrame, feerate_range)
-        p_z = calculate_z_priority(p_lambda, mu, mean_block_size)
-        p_wait_time = calculate_wait_time_for_priority_groups(p_lambda, p_z)
-        P_GROUP_WAITING_TIMES[key] = p_wait_time
-    
-    print(P_GROUP_WAITING_TIMES)
+        for key, value in P_GROUP_BLOCK_INTERVAL_DICTIONARY.items():
+            feerate_range = calculate_feerate_for_priority_groups(dataFrame.sort_values('feerate'), value)
+            p_lambda = calculate_lambda_for_priority_groups(dataFrame, feerate_range)
+            p_z = calculate_z_priority(p_lambda, mu, mean_block_size)
+            p_wait_time = calculate_wait_time_for_priority_groups(p_lambda, p_z)
+            P_GROUP_WAITING_TIMES[key] = p_wait_time
+        
+        print(P_GROUP_WAITING_TIMES)
 
-    #except Transaction.DoesNotExist:
-    #    print("No data in transaction relation")
-    #except :
-    #    print("No data in transaction relation")
+    except Transaction.DoesNotExist:
+        print("No data in transaction relation")
+    except :
+        print("No data in transaction relation")
                 
