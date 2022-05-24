@@ -33,10 +33,28 @@
         box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         width: 100%;
         height: 30%;
+        padding-top: 15px;
         padding-left: 30px;
         padding-bottom: 30px;
         padding-right: 30px;
         text-align: justify;
+    }
+
+    .table{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        text-align: center;
+        position: relative;
+    }
+
+    thead{
+        background-color: rgb(37, 37, 37);
+        color: whitesmoke;
+    }
+
+    td{
+        text-align: end;
     }
 </style>
 {% endblock style %}
@@ -48,24 +66,61 @@
         <div class="col-md-8">
             <div class="boxGraph">
                 <center><h1>Model Results & Comparison</h1></center>
-                <img src="{% static 'image/zoomed_plot.png' %}" alt="plot" width="100%" height=auto/>
-                <center><img src="{% static 'image/resultTable.png' %}" alt="plot" /></center>
+                {{ div_placehold }}
+                <img src="{% static 'image/zoomed_plot.png' %}" alt="plot" width="100%" height=auto/><br><br>
+              <!--   <center><img src="{% static 'image/resultTable.png' %}" alt="plot" /></center> -->
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Historical</th>
+                        <th scope="col">Mathematical</th>
+                        <th scope="col">Simulation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">P1</th>
+                        <td class="h-p1">2474.02097</td>
+                        <td class="m-p1">743.49006</td>
+                        <td class="s-p1">1708.41276</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">P2</th>
+                        <td class="h-p2">6085.26736</td>
+                        <td class="m-p2">1638.83040</td>
+                        <td class="s-p2">11760.96274</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">P3</th>
+                        <td class="h-p3">9987.64297</td>
+                        <td class="m-p3">2917.00598</td>
+                        <td class="s-p3">177142.90846</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">P4</th>
+                        <td class="h-p4">11979.93255</td>
+                        <td class="m-p4">5872.88358</td>
+                        <td class="s-p4">395966.44506</td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </div>
     
         <div class="col-md-4">
             <div class="boxGraph">
                 <div class="defGraph" style="margin-bottom: 30px; background-color: rgb(31, 119, 180)">
-                    <h2>Historical</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-                </div>
+                    <h2>Historical Data</h2>
+                    <p> The Historical data refers to the real-data scrape provided by Limeng, it describes the blocks confirmed from number x to y (not sure what the number range is off the top of my head) </p>
+                 </div>
                 <div class="defGraph" style="margin-bottom: 30px; background-color: rgb(255, 127, 14)">
                     <h2>Mathematical</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
+                    <p>Mathematical refers to our queueing theory based model which determines the mean confirmation time of the certain priority groups by taking inputs derived from the historical data </p>
                 </div>
                 <div class="defGraph" style="background-color: rgb(44, 160, 44)"">
                     <h2>Simulation</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                    <p>The simulation model uses similar inputs derived from the real-data, but it generates a simulated set of data with some random characteristics </p>
                 </div>
             </div>
         </div>

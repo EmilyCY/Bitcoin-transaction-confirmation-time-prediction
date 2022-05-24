@@ -14,10 +14,10 @@ P_GROUP_BLOCK_INTERVAL_DICTIONARY = {
 def calculate_feerate_for_priority_groups(data, upper_boundary):
     feerate_range = []
     transaction_counts = 0
-    feerate_range.append(data['fee_rate'].max())
+    feerate_range.append(data['feerate'].max())
     for i in range(len(upper_boundary)):
-        transaction_counts = len(data[data['no_block_confirm'] <= upper_boundary[i]])
-        boundary = data['fee_rate'].tail(transaction_counts).iloc[0]
+        transaction_counts = len(data[data['waiting_block_num'] <= upper_boundary[i]])
+        boundary = data['feerate'].tail(transaction_counts).iloc[0]
         feerate_range.append(boundary)
     feerate_range.append(0.0)
     return feerate_range
@@ -27,7 +27,7 @@ def calculate_lambda_for_priority_groups(data, feerate_range):
     received_time_max = data['received_time'].max()
     received_time_min = data['received_time'].min()
     for current, next in zip(feerate_range,feerate_range[1:]):
-        p_df = data[(data['fee_rate'] <= current) & (data['fee_rate'] > next)]
+        p_df = data[(data['feerate'] <= current) & (data['feerate'] > next)]
         p_transaction_count = len(p_df)
         p_lambda = float(p_transaction_count) / (received_time_max - received_time_min)
         p_groups_lambda.append(p_lambda)
@@ -75,26 +75,28 @@ def calculate_wait_time_for_priority_groups(p_group_lambda, p_group_z):
 class EstimatingWaitingTime:
     P_GROUP_WAITING_TIMES = {}
 
-    try:
-        Transaction.objects.exists()
-        dataFrame = load_data()
+    #try:
+    #    Transaction.objects.exists()
+    dataFrame = load_data()
 
-        dataFrame = dataFrame[dataFrame['waiting_time'] >= 0] # Remove any rows with negative values for waiting_time
+    dataFrame = dataFrame[dataFrame['waiting_time'] >= 0] # Remove any rows with negative values for waiting_time
 
-        block_groups = dataFrame.groupby(['confirmed_block_height'])['confirmed_block_height'].count()
-        mean_block_size = float(round(block_groups.mean()))
-        service_time = 600
-        mu = 1/service_time
+    block_groups = dataFrame.groupby(['confirmed_block_height'])['confirmed_block_height'].count()
+    mean_block_size = float(round(block_groups.mean()))
+    service_time = 600
+    mu = 1/service_time
 
-        for key, value in P_GROUP_BLOCK_INTERVAL_DICTIONARY.items():
-            feerate_range = calculate_feerate_for_priority_groups(dataFrame.sort_values('fee_rate'), value)
-            p_lambda = calculate_lambda_for_priority_groups(dataFrame, feerate_range)
-            p_z = calculate_z_priority(p_lambda, mu, mean_block_size)
-            p_wait_time = calculate_wait_time_for_priority_groups(p_lambda, p_z)
-            P_GROUP_WAITING_TIMES[key] = p_wait_time
+    for key, value in P_GROUP_BLOCK_INTERVAL_DICTIONARY.items():
+        feerate_range = calculate_feerate_for_priority_groups(dataFrame.sort_values('feerate'), value)
+        p_lambda = calculate_lambda_for_priority_groups(dataFrame, feerate_range)
+        p_z = calculate_z_priority(p_lambda, mu, mean_block_size)
+        p_wait_time = calculate_wait_time_for_priority_groups(p_lambda, p_z)
+        P_GROUP_WAITING_TIMES[key] = p_wait_time
+    
+    print(P_GROUP_WAITING_TIMES)
 
-    except Transaction.DoesNotExist:
-        print("No data in transaction relation")
-    except :
-        print("No data in transaction relation")
+    #except Transaction.DoesNotExist:
+    #    print("No data in transaction relation")
+    #except :
+    #    print("No data in transaction relation")
                 

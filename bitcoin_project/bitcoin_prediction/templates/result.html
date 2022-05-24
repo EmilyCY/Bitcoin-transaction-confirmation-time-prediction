@@ -56,12 +56,12 @@
         <center><div class="result" style="margin-top: 50px;">
             <table>
                 <tr>
-                    <td>Priority :</td>
-                    <td>{{ data.priority }}</td>
-                </tr>
-                 <tr>
                     <td>Fee Rate :</td>
                     <td>{{ data.fee }}</td>
+                </tr>
+                 <tr>
+                    <td>Priority Group :</td>
+                    <td>Class {{ data.priority }}</td>
                 </tr>
                  <tr>
                     <td>Waiting Time based on Model :</td>
@@ -79,7 +79,7 @@
         </div>
     </div>
 </div>
-<!-- {% include 'footer.html' %} -->
+
 {% endblock content %}
 
 {% block script %}

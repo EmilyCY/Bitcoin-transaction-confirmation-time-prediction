@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 
 from .populate_db import load_data_to_model
-from .queueing_model_simulation import Simulation1
+from .queueing_model_simulation import Simulation1, get_priority
 from .estimating_waiting_time import EstimatingWaitingTime
 import requests
 from datetime import date, timedelta, datetime
@@ -32,29 +32,31 @@ class SimulationView(APIView):
         num_of_priorities = int(request.POST.get('num_of_priorities'))
         fee_rate = float(request.POST.get('fee_rate'))
 
-        # decide priority depending on fee rate
-        # ...
-        priority = 0
-
         # get lists of calculated waiting time from each model
         waiting_time_on_model = EstimatingWaitingTime.P_GROUP_WAITING_TIMES.get(num_of_priorities)
-        expected_waiting_time = Simulation1.waiting_times_estimate
+        expected_waiting_time = Simulation1.EXPECTED_WAITING_TIME.get(num_of_priorities)
+
+        # decision of priority depending on fee rate
+        feerate_range = Simulation1.P_GROUP_FEE_RATE_RANGE.get(num_of_priorities)
+        priority = get_priority(fee_rate, feerate_range)
 
         # create graph
-        p_list = ['Priority1', 'Priority2', 'Priority3', 'Priority4']
+        p_list = []
+        for i in range(1, num_of_priorities+1):
+            p_list.append(f'Class {i}')
         col_name = ['priority', 'waiting_time', 'expected_waiting_time']
         df = pd.DataFrame(zip(p_list, waiting_time_on_model, expected_waiting_time), columns=col_name)
         data1 = go.Bar(x=df['priority'], y=df['waiting_time'], name='Waiting Time on Model')
         data2 = go.Bar(x=df['priority'], y=df['expected_waiting_time'], name='Expected Waiting Time on Simulation')
         layout = go.Layout(title='Comparison of Waiting time')
-        fig = go.Figure(data=[data1, data2], layout=layout, layout_yaxis_range=[0, 20000])
+        fig = go.Figure(data=[data1, data2], layout=layout, layout_yaxis_range=[0, 40000])
         div_placehold = plotly.io.to_html(fig, include_plotlyjs=False, full_html=False)
-
+        
         self.context = {
-            'priority': priority+1,
+            'priority': priority,
             'fee': fee_rate,
-            'waiting_time_on_model': round(waiting_time_on_model[priority], 2),
-            'expected_waiting_time': round(expected_waiting_time[priority], 2),
+            'waiting_time_on_model': round(waiting_time_on_model[priority-1], 2),
+            'expected_waiting_time': round(expected_waiting_time[priority-1], 2),
             'div_placehold': Markup(div_placehold)
         }
         
@@ -117,4 +119,3 @@ def bitcoinPrice(request):
           'div_placehold': Markup(div_placehold)
     }
     return render(request, 'bitcoinPrice.html', context)
-   
