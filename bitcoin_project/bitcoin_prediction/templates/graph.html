@@ -56,6 +56,25 @@
     td{
         text-align: end;
     }
+    
+  li{
+    display: inline;
+    padding-left: 5%;
+    font-weight: 600;
+    
+  }
+  ul{
+   width: 90%;
+   text-align: center;
+  }
+
+  .description{
+    width: 90%;
+    
+    padding-left: 70px;
+    text-align: justify;
+  }
+   
 </style>
 {% endblock style %}
 
@@ -69,6 +88,17 @@
                 {{ div_placehold }}
                 <img src="{% static 'image/zoomed_plot.png' %}" alt="plot" width="100%" height=auto/><br><br>
               <!--   <center><img src="{% static 'image/resultTable.png' %}" alt="plot" /></center> -->
+              <ul class="charts-css">
+                <li> X-axis: Priority Group </li>
+                <li> Y-axis: Mean Confirmation Time(s)</li>
+              </ul>
+              <br>
+              <p class="description">
+                These are the results for each model on different priority categories. This graph describes the way the two models predict transactions.
+                Each is relatively similar in the first category, and in the first and second categories, the simulation model is actually more accurate.
+                Following that, the simulation model becomes much less accurate at the lower priorities, although the Mathematical model is decently accurate, it still seems to consistently underestimate by a significant amount.
+              </p><br>
+              <br>
                 <table class="table">
                     <thead class="thead-light">
                       <tr>
@@ -112,15 +142,15 @@
             <div class="boxGraph">
                 <div class="defGraph" style="margin-bottom: 30px; background-color: rgb(31, 119, 180)">
                     <h2>Historical Data</h2>
-                    <p> The Historical data refers to the real-data scrape provided by Limeng, it describes the blocks confirmed from number x to y (not sure what the number range is off the top of my head) </p>
+                    <p> The Historical data refers to the real-data scrape provided by Limeng, it describes the blocks confirmed from number x to y (not sure what the number range is off the top of my head). </p>
                  </div>
                 <div class="defGraph" style="margin-bottom: 30px; background-color: rgb(255, 127, 14)">
                     <h2>Mathematical</h2>
-                    <p>Mathematical refers to our queueing theory based model which determines the mean confirmation time of the certain priority groups by taking inputs derived from the historical data </p>
+                    <p>Mathematical refers to our queueing theory based model which determines the mean confirmation time of the certain priority groups by taking inputs derived from the historical data. </p>
                 </div>
                 <div class="defGraph" style="background-color: rgb(44, 160, 44)"">
                     <h2>Simulation</h2>
-                    <p>The simulation model uses similar inputs derived from the real-data, but it generates a simulated set of data with some random characteristics </p>
+                    <p>The simulation model uses similar inputs derived from the real-data, but it generates a simulated set of data with some random characteristics. </p>
                 </div>
             </div>
         </div>
