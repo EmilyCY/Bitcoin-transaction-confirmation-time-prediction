@@ -9,8 +9,8 @@ The project include:
 Group Members:<br/>
 Christian Jong - [6806430@student.swin.edu.au](6806430@student.swin.edu.au)<br/>
 Emily Cheng - [103329805@student.swin.edu.au](103329805@student.swin.edu.au)<br/>
-Junghwan Ko - [102844666@student.swin.edu.au](102844666@student.swin.edu.au)<br/>
 Jordan Remzi-Johnson - [103316807@student.swin.edu.au](103316807@student.swin.edu.au)<br/>
+Junghwan Ko - [102844666@student.swin.edu.au](102844666@student.swin.edu.au)<br/>
 William Sutejo - [102346858@student.swin.edu.au](102346858@student.swin.edu.au)<br/>
 
 Facilitator & Client:<br/>
