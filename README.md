@@ -13,5 +13,5 @@ Junghwan Ko - [102844666@student.swin.edu.au](102844666@student.swin.edu.au)<br/
 Jordan Remzi-Johnson - [103316807@student.swin.edu.au](103316807@student.swin.edu.au)<br/>
 William Sutejo - [102346858@student.swin.edu.au](102346858@student.swin.edu.au)<br/>
 
-Facilitator:<br/>
+Facilitator & Client:<br/>
 Dr. Rui Zhou - [rzhou@swin.edu.au](rzhou@swin.edu.au)<br/>
