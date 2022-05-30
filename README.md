@@ -14,4 +14,4 @@ Jordan Remzi-Johnson - [103316807@student.swin.edu.au](103316807@student.swin.ed
 William Sutejo - [102346858@student.swin.edu.au](102346858@student.swin.edu.au)<br/>
 
 Facilitator:<br/>
-Dr. Rui Zhou - [schandrasekaran@swin.edu.au](rzhou@swin.edu.au)<br/>
+Dr. Rui Zhou - [rzhou@swin.edu.au](rzhou@swin.edu.au)<br/>
